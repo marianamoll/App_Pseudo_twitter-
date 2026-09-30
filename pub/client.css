@@ -1,0 +1,385 @@
+html, body{
+    min-height: 100%;
+}
+body{
+    overflow-y: auto;
+}
+body:not(.messages-feed){
+    display: flex;
+    align-items: flex-start;
+    place-content: center;
+    justify-content: center;
+    background-color: antiquewhite;
+    padding-top: 40px;
+
+}
+
+.messages-feed{
+    display: block;
+    background: #f5f7fa;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+#messages-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 15px;
+}
+.message {
+    background: white;
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+    min-height: 100px;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+
+}
+.message:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    gap:10px
+}
+.user {
+    font-weight: bold;
+    color: #2c3e50;
+}
+.date {
+    font-size: 0.75rem;
+    color: #999;
+}
+.text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #333;
+}
+form {
+    background-color: white;
+    width: 500px;           
+    padding: 50px;
+    border-radius: 40px;    
+    box-shadow: 0 10px 22px rgba(0,0,0,0.1); 
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+    gap: 15px;
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;               
+    width: 100%;
+}
+
+#title{
+    font-size: 30px;
+    text-align: center;
+}
+.input-field {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+input{
+    font-size:15px;
+    text-align: center;
+}
+/* Menu en haut */
+nav{
+    position:absolute;
+    top: 20px;          
+    left: 20px;          
+    background-color: white;
+    width: fit-content;          
+    padding: 40px;
+    border-radius: 10px;    
+    box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+    gap: 20px;
+    z-index: 200;
+}
+nav a {
+    text-decoration: none; 
+    color: #2c3e50; 
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+nav a:hover {
+    color: brown;  
+}
+nav a:hover {
+    background: #f5e7d4;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+.main-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 180px;
+}
+/* Post en haut du main */
+.quickPost {
+    padding: 25px 30px;   
+    border-radius: 30px;  
+}
+.quickPost,
+form {
+    border-radius: 40px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+.quickPost {
+    background: white;
+    border-radius: 40px; 
+    padding: 40px;       
+    box-shadow: 0 10px 22px rgba(0,0,0,0.1); 
+    border: none; 
+}
+.quickPost textarea {
+    width: 90%;
+    min-height: 90px;
+    resize: none;
+    margin: 0 auto; 
+    font-size: 16px; 
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 14px; 
+    outline: none;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.quickPost textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 15px;
+}
+.buttons button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f5e7d4;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+/* Button post new msg */
+#newMsgForm button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f5e7d4;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#newMsgForm button:hover {
+    background: #6c5a48;
+    color: white;
+}
+.quickPost button {
+    background: #f5e7d4;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+.quickPost button:hover {
+    background: #6c5a48;
+    color: white;
+}
+/* Private msg */
+#receiver,
+#message {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/*  */
+#message {
+    min-height: 120px;
+    resize: none;
+}
+
+#receiver::placeholder,
+#message::placeholder {
+    font-family: inherit;   /* meme font */
+    font-size: 16px;
+    color: #999;
+}
+
+#receiver:focus,
+#message:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#receiver {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#newMsgPriv button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f5e7d4;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#newMsgPriv button:hover {
+    background: #6c5a48;
+    color: white;
+}
+/*Sig in */
+#signinForm input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#signinForm input::placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
+#signinForm input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#signinForm button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f5e7d4;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+#title{
+    font-size: 30px;
+    text-align: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#signinForm button:hover {
+    background: #6c5a48;
+    color: white;
+}
+/*Login*/
+#loginForm input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+#loginForm input::placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
+#loginForm input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#loginForm button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f5e7d4;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.logged-user {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #999;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+.pwd-wrapper {
+    position: relative;
+    width: 100%;
+}
+.pwd-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+    box-sizing: border-box;
+}
+.pwd-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+.pwd-eye:hover {
+    opacity: 1;
+}
+
+.pwd-strength {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 6px;
+    display: none;
+}
